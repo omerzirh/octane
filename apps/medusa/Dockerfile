@@ -40,6 +40,6 @@ USER 1000
 
 WORKDIR /app/server
 
-ENV PORT=80
+ENV PORT=9000
 
 CMD ["yarn", "start:prod"]
