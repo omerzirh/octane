@@ -85,6 +85,9 @@ module.exports = defineConfig({
         optimizeDeps: {
           include: ['@lambdacurry/medusa-plugins-sdk'],
         },
+        server: {
+          allowedHosts: ['.octanestore.pl'],
+        },
       };
     },
   },
