@@ -1,5 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "MEDUSA_PUBLISHABLE_KEY",
+    "PUBLIC_MEDUSA_API_URL",
+    "STRIPE_PUBLIC_KEY",
+    "STRIPE_SECRET_KEY"
+  ],
   "ui": "stream",
   "tasks": {
     "build": {
@@ -23,7 +29,6 @@
     "medusa:init": {
       "cache": false
     },
-    "typecheck": {
-    }
+    "typecheck": {}
   }
 }
