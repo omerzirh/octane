@@ -12,7 +12,7 @@ if (process.env.INTERNAL_MEDUSA_API_URL) {
 if (process.env.PUBLIC_MEDUSA_API_URL) {
   MEDUSA_BACKEND_URL = process.env.PUBLIC_MEDUSA_API_URL;
 }
-
+console.log(MEDUSA_BACKEND_URL);
 export const baseMedusaConfig = {
   baseUrl: MEDUSA_BACKEND_URL,
   debug: process.env.NODE_ENV === 'development',

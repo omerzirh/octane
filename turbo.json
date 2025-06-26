@@ -4,7 +4,9 @@
     "MEDUSA_PUBLISHABLE_KEY",
     "PUBLIC_MEDUSA_API_URL",
     "STRIPE_PUBLIC_KEY",
-    "STRIPE_SECRET_KEY"
+    "STRIPE_SECRET_KEY",
+    "STOREFRONT_URL",
+    "NODE_ENV"
   ],
   "ui": "stream",
   "tasks": {
