@@ -21,6 +21,8 @@ https://github.com/user-attachments/assets/3c10d2f5-91b8-405c-a47c-c8ae8a4be575
 - [Local Development Setup](#local-development-setup)
 - [Resetting the Database](#resetting-the-database)
 - [Enabling Express Checkout](#enabling-express-checkout)
+- [Deployment](#deployment)
+  - [Deploying with Coolify](#deploying-with-coolify)
 - [Useful Links](#useful-links)
 - [Contributors](#contributors)
 
@@ -102,6 +104,74 @@ You can view a live demo of the project [here](https://barrio.lambdacurry.dev/).
       yarn dev
       ```
 
+
+## Deployment
+### Deploying with Coolify
+
+These instructions guide you through deploying the Medusa backend and the Remix storefront using Coolify.
+
+#### 1. Database Setup
+
+Before deploying your applications, set up your databases in Coolify.
+
+1.  **Create Databases**: In your Coolify project, create separate **PostgreSQL** and **Redis** database instances.
+2.  **Enable Public Access for Postgres**: To run initial migrations, make your PostgreSQL database publicly accessible. In Coolify, go to your Postgres resource settings and enable "Is Publicly Accessible." Copy the public connection URL.
+3.  **Run Migrations Locally**: Update your local `apps/medusa/.env` file, setting `DATABASE_URL` and `POSTGRES_URL` to the public Coolify Postgres URL. Then, run the migrations from your local machine:
+    ```bash
+    yarn migrate:prod
+    ```
+4.  **Secure Your Database**: After the migration, disable public access to your PostgreSQL database in Coolify. Your applications will use the private network.
+5.  **Note Private URLs**: Keep the private connection URLs for both PostgreSQL and Redis handy for the next steps.
+
+#### 2. GitHub Actions & Docker Image Setup
+
+This repository uses GitHub Actions to automatically build and publish Docker images for the Medusa backend and the storefront.
+
+1.  **Configure Docker Repository**: Open the `.github/workflows/barrio.yaml` file and update the `DOCKER_REPOSITORY` variable with your Docker Hub username and desired repository path.
+2.  **Enable GitHub Actions**: Go to your repository's "Actions" tab on GitHub and enable them if they are not already.
+
+Once enabled, the workflow will run, building the necessary Docker images. The workflow might show a failure on the Helm step, but the Docker images will still be successfully created and pushed to the repository you specified.
+
+#### 3. Deploying the Medusa Backend
+
+1.  **Get Docker Image URL**: From your Docker Hub repository, copy the URL for the Medusa backend image (e.g., `yourusername/medusa-backend:latest`).
+2.  **Create Coolify Resource**: In your Coolify dashboard, create a new resource and select "Docker Image". Paste the URL you copied.
+3.  **Configure Settings**:
+    -   **Domain**: Set your desired domain. HTTPS is recommended and pre-configured.
+    -   **Port**: Set the port to `9000`.
+4.  **Add Environment Variables**: Copy the contents of `apps/medusa/.env.template` and add them as environment variables in the Coolify application settings. Ensure you fill in all required values.
+5.  **Deploy**: Click the "Deploy" button.
+
+ Heads up: It might not work on the first try. You’ll probably cry a little. That’s normal. Be patient — it’ll work.
+ 
+#### 4. Deploying the Remix Storefront
+
+You can deploy the storefront using Coolify or Vercel. Vercel is often simpler for Next.js/Remix applications.
+
+**Using Coolify:**
+
+1.  **Get Docker Image URL**: From your Docker Hub repository, copy the URL for the storefront image (e.g., `yourusername/storefront:latest`).
+2.  **Create Coolify Resource**: Follow the same process as the backend, creating a new "Docker Image" resource in Coolify.
+3.  **Configure Settings**:
+    -   **Domain**: Set your desired domain.
+    -   **Port**: Set the port to `3000`.
+4.  **Add Environment Variables**: Copy the environment variables from `apps/storefront/.env.template` to Coolify.
+5.  **Deploy**: Click the "Deploy" button.
+
+#### 5. Post-Deployment Configuration
+After logging into your Medusa Admin (http://your-domain.com/app/login), go to:
+
+Settings → Publishable API Keys
+
+Create a key and assign a Sales Channel.
+
+**CRITICAL STEP**: If you don’t assign a Sales Channel, you’ll waste hours googling 500 errors and questioning your life choices..
+
+1.  Log in to your Medusa Admin dashboard.
+2.  Navigate to **Settings → Publishable API Keys**.
+3.  Create a new key or select an existing one.
+4.  In the key's settings, add at least one **Sales Channel**.
+5.  Update the `MEDUSA_PUBLISHABLE_KEY` environment variable in your storefront application with this new key and redeploy if necessary.
 
 ## Resetting the Database
 In order to reset the database, follow the steps from 3 to 7 in the Local Development Setup section.
