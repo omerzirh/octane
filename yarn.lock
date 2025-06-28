@@ -12341,23 +12341,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/react-stripe-js@npm:2.8.0":
-  version: 2.8.0
-  resolution: "@stripe/react-stripe-js@npm:2.8.0"
+"@stripe/react-stripe-js@npm:^3.7.0":
+  version: 3.7.0
+  resolution: "@stripe/react-stripe-js@npm:3.7.0"
   dependencies:
     prop-types: "npm:^15.7.2"
   peerDependencies:
-    "@stripe/stripe-js": ^1.44.1 || ^2.0.0 || ^3.0.0 || ^4.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/101cedd521ec90fa446fa333f5464899036bd089d6e9798961f956c66975f066cd19625ce81b1c1becd9323b2a72addd1f4f63444404ebf6a6b12e27ba2bd91b
+    "@stripe/stripe-js": ">=1.44.1 <8.0.0"
+    react: ">=16.8.0 <20.0.0"
+    react-dom: ">=16.8.0 <20.0.0"
+  checksum: 10c0/663e9176b0a710632abe64bb7efca63a22d8cf690942a4507d57ba1d4fb6328cd08e3cf9040ea95348540c47ed8dbc5250982b150b38eb9564861dc0ecd83d72
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^4.3.0":
-  version: 4.10.0
-  resolution: "@stripe/stripe-js@npm:4.10.0"
-  checksum: 10c0/d437c367b753b53158fe9070885424821787f627d74a1f3b526feb51614be3e26d042b8dc6827ee59e8288a94e08dd852f6011106ea28d082066b1de89aa4ba1
+"@stripe/stripe-js@npm:^7.4.0":
+  version: 7.4.0
+  resolution: "@stripe/stripe-js@npm:7.4.0"
+  checksum: 10c0/f75da6be7a83b8ce659c133ad585d9b27f2d65152cc62747df4b7880ae53ed1b7f8304a4d184e5c4e12c76c3e589579a4b7440aa13afff44c39f098942565ed2
   languageName: node
   linkType: hard
 
@@ -23494,7 +23494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.10.3, qs@npm:^6.11.0, qs@npm:^6.11.2, qs@npm:^6.12.0, qs@npm:^6.12.1":
+"qs@npm:^6.11.0, qs@npm:^6.11.2, qs@npm:^6.12.0, qs@npm:^6.12.1":
   version: 6.14.0
   resolution: "qs@npm:6.14.0"
   dependencies:
@@ -25533,8 +25533,8 @@ __metadata:
     "@react-router/serve": "npm:^7.5.3"
     "@sentry/remix": "npm:^8.26.0"
     "@smastrom/react-rating": "npm:^1.3.2"
-    "@stripe/react-stripe-js": "npm:2.8.0"
-    "@stripe/stripe-js": "npm:^4.3.0"
+    "@stripe/react-stripe-js": "npm:^3.7.0"
+    "@stripe/stripe-js": "npm:^7.4.0"
     "@swc-node/register": "npm:^1.4.2"
     "@swc/cli": "npm:~0.1.55"
     "@swc/core": "npm:^1.2.173"
@@ -25602,7 +25602,7 @@ __metadata:
     remix-development-tools: "npm:4.2.0"
     remix-hook-form: "npm:7.0.1"
     remix-utils: "npm:7.6.0"
-    stripe: "npm:^9.12.0"
+    stripe: "npm:^18.2.1"
     tailwindcss: "npm:3.3.5"
     ts-jest: "npm:28.0.8"
     ts-node: "npm:10.9.1"
@@ -25826,13 +25826,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^9.12.0":
-  version: 9.16.0
-  resolution: "stripe@npm:9.16.0"
+"stripe@npm:^18.2.1":
+  version: 18.2.1
+  resolution: "stripe@npm:18.2.1"
   dependencies:
-    "@types/node": "npm:>=8.1.0"
-    qs: "npm:^6.10.3"
-  checksum: 10c0/71120451866d68009119e7efb8272d69a9195d8fb4330f490ed584764201068fcfdb94c28d44db507f28b09c45049396858eefd6423a05ab64847870b67aa34a
+    qs: "npm:^6.11.0"
+  peerDependencies:
+    "@types/node": ">=12.x.x"
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+  checksum: 10c0/7edef67ca27bd4e84ac24eae4e10fa1d712392c08eec62aa6748c78241ebccc2a057651716a619fcaac1b70c5f08ba5fc5adf255d67462d5a441e3a96c0dc6c5
   languageName: node
   linkType: hard
 
