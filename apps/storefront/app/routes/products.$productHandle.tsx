@@ -45,7 +45,7 @@ export const loader = async (args: LoaderFunctionArgs) => {
     return { product, productReviews, productReviewStats };
   } catch (error) {
     console.error('Error in product page loader:', error);
-    throw new Response('An unknown error occurred.', { status: 500 });
+    throw error;
   }
 };
 
