@@ -20,6 +20,7 @@ export type NavigationCollection = NavigationItem[];
 
 export interface SiteDetailsRootData {
   store: StoreDTO;
+  logo: string;
   settings: SiteSettings;
   headerNavigationItems: NavigationCollection;
   footerNavigationItems: NavigationCollection;

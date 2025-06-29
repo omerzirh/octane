@@ -11,7 +11,7 @@ import { enrichLineItems, retrieveCart } from './data/cart.server';
 import { getCustomer } from './data/customer.server';
 import { getSelectedRegion, listRegions } from './data/regions.server';
 import { fetchProducts } from './products.server';
-
+import octaneLogo from '../../../app/components/common/assets/octane-logo/octane_nav.svg';
 const fetchHasProducts = async (request: Request) => {
   return await fetchProducts(request, { limit: 1, offset: 999_999 }).then((res) => res.count > 0);
 };
@@ -60,12 +60,30 @@ export const getRootLoader = async ({ request }: LoaderFunctionArgs) => {
       region,
       siteDetails: {
         store: {
-          name: 'BARRIO',
+          id: 'default',
+          name: 'OCTANE STORE',
+          default_currency_code: 'usd',
+          default_sales_channel_id: null,
+          default_region_id: null,
+          default_location_id: null,
+          metadata: {},
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          deleted_at: null,
+          supported_currency_codes: ['usd'],
+          currencies: [{
+            code: 'usd',
+            name: 'US Dollar',
+            symbol: '$',
+            symbol_native: '$',
+          }]
         },
+        logo: octaneLogo,
         settings: siteSettings,
         headerNavigationItems,
         footerNavigationItems,
-      } as SiteDetailsRootData,
+        SiteSettings: siteSettings,
+      } as unknown as SiteDetailsRootData,
       cart: cart,
     },
     { headers },

@@ -11,7 +11,7 @@ const LogoHeader: FC<PropsWithChildren & { primary: boolean | undefined; classNa
 }) => (primary ? <h1 className={clsx('logo-header', className)} {...rest} /> : <h2 className={className} {...rest} />);
 
 export const LogoStoreName: FC<{ primary?: boolean; className?: string }> = ({ primary, className }) => {
-  const { store, settings } = useSiteDetails();
+  const { store, logo, settings } = useSiteDetails();
 
   if (!store || !settings) return null;
 
@@ -23,7 +23,7 @@ export const LogoStoreName: FC<{ primary?: boolean; className?: string }> = ({ p
       className={clsx('logo-header flex flex-nowrap items-center justify-center gap-x-2 gap-y-2 sm:gap-x-4', className)}
     >
       <LogoHeader primary={primary} className="xs:text-2xl whitespace-nowrap text-lg font-bold font-aboreto">
-        {store?.name}
+        <Image src={logo} alt={store?.name} className="w-24 h-24" />
       </LogoHeader>
     </Link>
   );
