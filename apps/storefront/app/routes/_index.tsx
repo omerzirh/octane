@@ -19,63 +19,51 @@ export default function IndexRoute() {
   return (
     <>
       <link rel="preload" href="/assets/images/barrio-banner.png" as="image" />
+
       <Hero
-        className="h-[800px] !max-w-full -mt-[calc(var(--mkt-header-height)+3rem)] md:-mt-[calc(var(--mkt-header-height-desktop)+2rem)] pt-[var(--mkt-header-height)] md:pt-[var(--mkt-header-height-desktop)]"
-        content={
-          <div className="text-center w-full space-y-9">
-            <h4 className="font-italiana text-2xl">COFFEE & COMMUNITY</h4>
-            <h1 className="text-8xl font-aboreto">BARRIO</h1>
-            <p className="max-w-prose mx-auto text-lg">
-              Discover our artisan-roasted coffee, crafted with care and delivered to your door. At Barrio, we’re more
-              than a coffee roastery—we’re&nbsp;a&nbsp;neighborhood.
-            </p>
-          </div>
-        }
-        actions={[
-          {
-            label: 'Discover Our Blends',
-            url: '/categories/blends',
-          },
-        ]}
-        image={{
-          url: '/assets/images/barrio-banner.png',
-          alt: 'Barrio background',
-        }}
-      />
-
-      <Container className="p-14 md:pt-1 lg:pt-24 relative flex flex-col-reverse items-center lg:flex-row">
-        <div className="md:absolute w-80 md:left-4 md:-top-[240px] lg:left-20 lg:w-[420px]">
-          <Image
-            src="/assets/images/header-image-1.png"
-            loading="lazy"
-            alt="Barrio background"
-            height={520}
-            width={420}
-          />
-        </div>
-
-        <div className="md:w-full flex flex-col justify-center max-md:items-center">
-          <div className="w-full flex text-center md:text-left">
-            <h2 className="mx-auto md:ml-[32%] lg:ml-[37%] xl:ml-[30%] lg:mr-auto text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-ballet mt-12">
-              Building Community
-            </h2>
-          </div>
-          <p className="font-italiana text-6xl lg:text-7xl xl:text-8xl mt-6 lg:mt-8 xl:mt-10 max-sm:text-center">
-            one cup at a time
+      className="h-[500px] !max-w-full -mt-[calc(var(--mkt-header-height)+3rem)] md:-mt-[calc(var(--mkt-header-height-desktop)+2rem)] pt-[var(--mkt-header-height)] md:pt-[var(--mkt-header-height-desktop)]"
+      content={
+        <div className="text-center w-full space-y-9">
+          <h4 className="font-italiana text-2xl">COFFEE & COMMUNITY</h4>
+          <h1 className="text-8xl font-aboreto">BARRIO</h1>
+          <p className="max-w-prose mx-auto text-lg">
+            Discover our artisan-roasted coffee, crafted with care and delivered to your door. At Barrio, we’re more
+            than a coffee roastery—we’re&nbsp;a&nbsp;neighborhood.
           </p>
         </div>
-      </Container>
+      }
+      actions={[
+        {
+          label: 'Discover Our Blends',
+          url: '/categories/blends',
+        },
+      ]}
+      image={{
+        url: '/assets/images/barrio-banner.png',
+        alt: 'Barrio background',
+      }}
+    />
 
-      <Container className="p-14 pt-0">
-        <Hero
-          className="h-[594px]"
-          backgroundClassName="rounded-3xl"
-          image={{
-            url: '/assets/images/banner-coffee-shop.png',
-            alt: 'Barrio background',
-          }}
-        />
-      </Container>
+
+
+      <ProductList
+        className="!pb-[100px]"
+        heading="Our Blends"
+        actions={[
+          {
+            label: 'View all',
+            url: '/products',
+          },
+        ]}
+      />
+      <Container className="p-14 md:pt-1 lg:pt-24 relative flex flex-col-reverse items-center lg:flex-row">
+
+      <div className="md:w-full flex flex-col justify-center max-md:items-center">
+        <p className="font-italiana text-6xl lg:text-7xl xl:text-8xl mt-6 lg:mt-8 xl:mt-10 max-sm:text-center">
+        Building Community one cup at a time
+        </p>
+      </div>
+    </Container>
 
       <ListItems
         itemsClassName="mb-2"
@@ -116,18 +104,6 @@ export default function IndexRoute() {
           },
         ]}
       />
-
-      <ProductList
-        className="!pb-[100px]"
-        heading="Our Blends"
-        actions={[
-          {
-            label: 'View all',
-            url: '/products',
-          },
-        ]}
-      />
-
       <Hero
         className="pb-10 min-h-[734px] !max-w-full"
         content={
@@ -173,55 +149,8 @@ export default function IndexRoute() {
         }}
       />
 
-      <Container className="flex flex-col-reverse gap-8 items-center md:items-start p-6 lg:pt-24 xl:pt-16 lg:px-24 relative lg:min-h-[354px] min-h-[276px]">
-        <div className="flex justify-center md:justify-end md:absolute md:-top-[30%] w-60 md:w-80 md:right-0 lg:right-20 lg:w-[420px]">
-          <Image src="/assets/images/header-image-2.png" alt="Barrio background" height={520} width={420} />
-        </div>
-
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-italiana md:ml-0 md:mr-[288px] lg:mr-[392px]">
-          <span className="whitespace-nowrap">The Art of Roasting</span>
-          <br />
-          <span className="font-ballet text-[200%] whitespace-nowrap inline-block mt-6 mb-4 sm:mt-2 sm:-mb-4">
-            at Barrio
-          </span>
-          <br />
-          <span className="whitespace-nowrap">Crafting with Care</span>
-        </h2>
-      </Container>
-
-      <SideBySide
-        className="p-14 md:pt-12 lg:px-24"
-        left={
-          <div className="w-full h-full flex items-center justify-center">
-            <div
-              className="bg-cover bg-no-repeat bg-center w-full rounded-3xl h-[410px]"
-              style={{
-                backgroundImage: 'url(/assets/images/coffee-shop-2.png)',
-              }}
-            />
-          </div>
-        }
-        right={
-          <p className="text-sm h-full flex items-center justify-center">
-            At Barrio, our roasting process is a carefully honed craft, combining traditional techniques with a modern,
-            sustainable approach. Each batch of coffee is roasted in small quantities to ensure precise control over
-            every stage of the process, allowing the unique characteristics of the beans to shine through.
-            <br />
-            <br />
-            We start by selecting high-quality, ethically sourced beans from farmers who share our commitment to
-            sustainability and community. The roasting process begins with a slow, even heat that coaxes out the natural
-            flavors, developing rich aromas and deep, complex profiles. Every bean undergoes a transformation, revealing
-            its distinct notes—whether it's the bright acidity of a light roast, the balanced sweetness of a medium
-            roast, or the bold, rich depth of a dark roast.
-            <br />
-            <br />
-            Our goal is to honor the origin of each coffee, preserving its natural flavors while adding our own touch of
-            expertise. The result? A perfectly roasted coffee that reflects the heart of our community—vibrant, diverse,
-            and full of life. At Barrio, every roast tells a story, and every cup connects you to the hands that
-            nurtured it.
-          </p>
-        }
-      />
+    
+     
       <GridCTA
         className="p-14 md:pt-28 lg:pt-24 lg:px-24"
         images={[
