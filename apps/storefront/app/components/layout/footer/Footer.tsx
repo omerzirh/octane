@@ -44,11 +44,9 @@ export const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-6 w-full flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-16">
           <div className="flex w-full flex-col items-center gap-8 sm:w-auto sm:items-start sm:gap-9 sm:col-span-2 lg:col-span-3">
             <div className="flex flex-col gap-5">
-              <h4 className="font-bold">Coffee & Community</h4>
+              <h4 className="font-bold">Original & Human-Made</h4>
               <p className="text-sm">
-                Barrio Coffee is a specialty coffee roaster and cafe located in East Austin. We offer freshly roasted
-                beans with an experienced balance of quality flavors. Come enjoy our custom house-blends and our
-                assortment of single origin coffees.
+                Octane Store curates and creates original, authentic designs crafted by real people. Every product is made with artistry and passion—no mass production, just genuine human creativity.
               </p>
             </div>
             <LogoStoreName />
@@ -78,11 +76,9 @@ export const Footer = () => {
             <SocialIcons siteSettings={settings} />
 
             <div className="flex flex-col gap-4 mt-4">
-              <h5>Location</h5>
+              <h5>Worldwide</h5>
               <p className="text-sm">
-                1619 E Cesar Chavez St, Austin, TX 78702
-                <br />
-                Open 7AM - 4PM Daily
+                Octane Store is online and open 24/7. Join our community of creators from anywhere in the world!
               </p>
             </div>
           </div>

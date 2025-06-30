@@ -24,18 +24,17 @@ export default function IndexRoute() {
       className="h-[500px] !max-w-full -mt-[calc(var(--mkt-header-height)+3rem)] md:-mt-[calc(var(--mkt-header-height-desktop)+2rem)] pt-[var(--mkt-header-height)] md:pt-[var(--mkt-header-height-desktop)]"
       content={
         <div className="text-center w-full space-y-9">
-          <h4 className="font-italiana text-2xl">COFFEE & COMMUNITY</h4>
-          <h1 className="text-8xl font-aboreto">BARRIO</h1>
+          <h4 className="font-italiana text-2xl">ORIGINAL & AUTHENTIC</h4>
+          <h1 className="text-8xl font-aboreto">OCTANE STORE</h1>
           <p className="max-w-prose mx-auto text-lg">
-            Discover our artisan-roasted coffee, crafted with care and delivered to your door. At Barrio, we’re more
-            than a coffee roastery—we’re&nbsp;a&nbsp;neighborhood.
+            Discover original, human-made designs crafted with passion and creativity. Every product at Octane Store is a unique piece, made by real people for those who value authenticity and artistry.
           </p>
         </div>
       }
       actions={[
         {
-          label: 'Discover Our Blends',
-          url: '/categories/blends',
+          label: 'Explore Our Designs',
+          url: '/categories/wearables',
         },
       ]}
       image={{
@@ -48,11 +47,11 @@ export default function IndexRoute() {
 
       <ProductList
         className="!pb-[100px]"
-        heading="Our Blends"
+        heading="Featured Originals"
         actions={[
           {
-            label: 'View all',
-            url: '/products',
+            label: 'Explore All Products',
+            url: '/categories/wearables',
           },
         ]}
       />
@@ -60,44 +59,44 @@ export default function IndexRoute() {
 
       <div className="md:w-full flex flex-col justify-center max-md:items-center">
         <p className="font-italiana text-6xl lg:text-7xl xl:text-8xl mt-6 lg:mt-8 xl:mt-10 max-sm:text-center">
-        Building Community one cup at a time
+        Experience Authentic Design. Made by Humans.
         </p>
       </div>
     </Container>
 
       <ListItems
         itemsClassName="mb-2"
-        title="About our products"
+        title="Why Choose Octane Store?"
         items={[
           {
-            title: 'Responsibly Sourced',
+            title: 'Authentic Designs',
             description:
-              'We believe good coffee happens when great people come together to build longterm relationships.',
+              'Every item is envisioned and crafted by real people—no AI or mass production. Expect originality in every piece.',
             image: {
               src: '/assets/images/benefit-1.png',
-              alt: 'Responsibly Sourced',
+              alt: 'Endless Possibilities',
               width: 60,
               height: 60,
             },
           },
           {
-            title: 'Meticulously Roasted',
+            title: 'Premium Quality',
             description:
-              'Our custom roast profiles are designed to elevate the natural beauty of our coffees - from sparkling acidity to brown sugar sweetness.',
+              'We use the best materials and careful craftsmanship to ensure every Octane Store product stands out and lasts.',
             image: {
               src: '/assets/images/benefit-2.png',
-              alt: 'Meticulously Roasted',
+              alt: 'Premium Quality',
               width: 60,
               height: 60,
             },
           },
           {
-            title: 'Giving Back',
+            title: 'Human Touch',
             description:
-              'Every time you buy a bag of our coffee, we donate a portion of our proceeds to our non-profit partners.',
+              'Our team pours passion and creativity into every product. You get something truly special, made by hand and heart.',
             image: {
               src: '/assets/images/benefit-3.png',
-              alt: 'Giving Back',
+              alt: 'Made for You',
               width: 60,
               height: 60,
             },
@@ -108,9 +107,9 @@ export default function IndexRoute() {
         className="pb-10 min-h-[734px] !max-w-full"
         content={
           <div className="text-center w-full space-y-9 pt-9">
-            <h4 className="font-italiana text-2xl">SUBSCRIBE & SAVE</h4>
+            <h4 className="font-italiana text-2xl">JOIN THE MOVEMENT</h4>
             <h1 className="text-4xl lg:text-7xl font-italiana">
-              Sit back, let us take care&nbsp;of&nbsp;your&nbsp;coffee
+              Celebrate Human Creativity
             </h1>
 
             <ListItems
@@ -119,19 +118,19 @@ export default function IndexRoute() {
               useFillTitle
               items={[
                 {
-                  title: 'Choose your coffee',
+                  title: 'Discover Unique Designs',
                   description:
-                    'From single origin to our house blend, or even surprise offerings for the more adventurous, we have the coffee tofit your taste.',
+                    'Browse our curated collection of original works. Each item tells a story and is made by real artists and creators.',
                 },
                 {
-                  title: 'Choose a frequency',
+                  title: 'Support Human Talent',
                   description:
-                    'Receive 12 oz of our whole bean coffee weekly, every 2 weeks, every 3 weeks, or monthly—whatever frequency meets your needs.',
+                    'Every purchase supports independent creators and helps keep authentic design alive.',
                 },
                 {
-                  title: 'enjoy :)',
+                  title: 'Enjoy the Difference',
                   description:
-                    'You’ve chosen your coffee and how often you want it delivered—all that’s left to do is sit back and relax while we do all the work.',
+                    'Feel the quality and soul in every Octane Store product. No mass production—just genuine, human-made art.',
                 },
               ]}
             />
@@ -139,7 +138,7 @@ export default function IndexRoute() {
         }
         actions={[
           {
-            label: 'Get your coffee',
+            label: 'Start Creating',
             url: '/products',
           },
         ]}
@@ -165,13 +164,13 @@ export default function IndexRoute() {
         ]}
         content={
           <div className="space-y-8 flex flex-col justify-center items-center">
-            <h4 className="text-xl font-italiana">FIND YOUR COMMUNITY</h4>
-            <h3 className="text-7xl  font-aboreto">BARRIO</h3>
-            <p className="text-xl">Ship, Share & Connect Over Coffee</p>
+            <h4 className="text-xl font-italiana">EXPLORE THE POSSIBILITIES</h4>
+            <h3 className="text-7xl  font-aboreto">OCTANE STORE</h3>
+            <p className="text-xl">Connect, Create, and Share Your Custom-Made Products</p>
             <ActionList
               actions={[
                 {
-                  label: 'Subscribe for Events',
+                  label: 'Join Our Community',
                   url: '#',
                 },
               ]}

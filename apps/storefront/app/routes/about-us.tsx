@@ -85,22 +85,18 @@ export default function IndexRoute() {
                 Our Story
               </h1>
               <p className="mx-auto text-md md:text-2xl !leading-normal">
-                At Barrio Coffee Roastery, we’re more than just a coffee business—we’re a community. Inspired by the
-                essence of a "barrio," a close-knit neighborhood where people gather, share, and connect, we aim to
-                bring that sense of belonging and warmth to every cup of coffee we roast. From the moment we started,
-                our passion has been to create exceptional coffee that{' '}
-                <span className="font-bold">brings people together, one sip at a time.</span>
+                Octane Store is dedicated to creating and curating original, authentic designs—crafted entirely by real people. Our mission is to bring you unique products that embody artistry, creativity, and a genuine human touch. Every item at Octane Store is made by talented designers and makers who pour their passion into every detail. <span className="font-bold">Experience the difference of human-made design.</span>
               </p>
             </div>
           }
           actionsClassName="!flex-row w-full justify-center !font-base"
           actions={[
             {
-              label: 'Shop Our Coffee',
-              url: '/products',
+              label: 'Shop Original Designs',
+              url: '/categories/wearables',
             },
             {
-              label: 'Join the Barrio Community',
+              label: 'Meet Our Creators',
               url: '#',
             },
           ]}
@@ -109,11 +105,11 @@ export default function IndexRoute() {
 
       <Container className="pt-4 flex flex-col gap-16 py-0 sm:!px-16 pb-44">
         <div className="font-italiana text-4xl break-words md:text-6xl lg:text-7xl">
-          Find your people, find your <span className="font-ballet text-[150%] leading-tight">Barrio</span>
+          Discover the artistry and originality behind every Octane Store product.
         </div>
-        {locations.map((location) => (
-          <Location {...location} />
-        ))}
+        <div className="text-xl mt-8 text-center">
+          We believe in celebrating human creativity. Our team and collaborators are passionate about making authentic designs you won’t find anywhere else. Thank you for supporting real people and real art.
+        </div>
       </Container>
     </>
   );
