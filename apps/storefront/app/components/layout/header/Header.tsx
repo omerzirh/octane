@@ -1,16 +1,16 @@
-import { LogoStoreName } from '@app/components/LogoStoreName/LogoStoreName';
-import { IconButton } from '@app/components/common/buttons';
-import { Container } from '@app/components/common/container/Container';
-import { URLAwareNavLink } from '@app/components/common/link';
-import { useCart } from '@app/hooks/useCart';
-import { useRootLoaderData } from '@app/hooks/useRootLoaderData';
-import { useSiteDetails } from '@app/hooks/useSiteDetails';
-import { Bars3Icon } from '@heroicons/react/24/outline';
-import ShoppingBagIcon from '@heroicons/react/24/outline/ShoppingBagIcon';
-import clsx from 'clsx';
-import { type FC, useState } from 'react';
-import { HeaderSideNav } from './HeaderSideNav';
-import { useActiveSection } from './useActiveSection';
+import { LogoStoreName } from "@app/components/LogoStoreName/LogoStoreName";
+import { IconButton } from "@app/components/common/buttons";
+import { Container } from "@app/components/common/container/Container";
+import { URLAwareNavLink } from "@app/components/common/link";
+import { useCart } from "@app/hooks/useCart";
+import { useRootLoaderData } from "@app/hooks/useRootLoaderData";
+import { useSiteDetails } from "@app/hooks/useSiteDetails";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import ShoppingBagIcon from "@heroicons/react/24/outline/ShoppingBagIcon";
+import clsx from "clsx";
+import { type FC, useState } from "react";
+import { HeaderSideNav } from "./HeaderSideNav";
+import { useActiveSection } from "./useActiveSection";
 
 export type HeaderProps = {};
 
@@ -25,7 +25,7 @@ export const Header: FC<HeaderProps> = () => {
   if (!headerNavigationItems) return <>Loading...</>;
 
   return (
-    <header className="sticky top-0 z-40 mkt-header text-white bg-[#3F432C] opacity-75 backdrop-blur">
+    <header className="sticky top-0 z-40 mkt-header text-white bg-accent-50 opacity-75 backdrop-blur">
       <nav aria-label="Top">
         <div className="bg-transparent">
           <div className="">
@@ -40,13 +40,21 @@ export const Header: FC<HeaderProps> = () => {
                         <div className="relative">
                           <ShoppingBagIcon
                             {...iconProps}
-                            className={clsx(iconProps.className, 'hover:!bg-primary-50 focus:!bg-primary-50')}
+                            className={clsx(
+                              iconProps.className,
+                              "hover:!bg-primary-50 focus:!bg-primary-50"
+                            )}
                           />
                           {cart.items && cart.items.length > 0 && (
                             <span className="bg-primary-500 absolute -top-1 left-full -ml-2 flex h-4 min-w-[1rem] items-center justify-center rounded-full px-1 text-xs font-bold text-white">
                               <span>
-                                {cart.items.reduce((acc, item) => acc + item.quantity, 0)}{' '}
-                                <span className="sr-only">items in cart, view bag</span>
+                                {cart.items.reduce(
+                                  (acc, item) => acc + item.quantity,
+                                  0
+                                )}{" "}
+                                <span className="sr-only">
+                                  items in cart, view bag
+                                </span>
                               </span>
                             </span>
                           )}
@@ -62,32 +70,40 @@ export const Header: FC<HeaderProps> = () => {
 
               <div
                 className={clsx(
-                  'h-[var(--mkt-header-height)] flex sm:h-[var(--mkt-header-height-desktop)] flex-nowrap items-center justify-between gap-2 py-2',
+                  "h-[var(--mkt-header-height)] flex sm:h-[var(--mkt-header-height-desktop)] flex-nowrap items-center justify-between gap-2 py-2"
                 )}
               >
                 <LogoStoreName className="xs:h-14 h-8" primary />
                 <div className="flex flex-wrap-reverse items-center gap-x-6 sm:justify-end">
                   {headerNavigationItems && (
                     <div className="hidden h-full gap-6 md:flex">
-                      {headerNavigationItems.slice(0, 6).map(({ id, new_tab, ...navItemProps }, index) => (
-                        <URLAwareNavLink
-                          key={id}
-                          {...navItemProps}
-                          newTab={new_tab}
-                          className={({ isActive }) =>
-                            clsx('my-4 flex items-center whitespace-nowrap text-base font-normal', {
-                              'hover:underline': !isActive,
-                              'border-b-primary-200 border-b-2':
-                                isActive &&
-                                (!navItemProps.url.includes('#') ||
-                                  activeSection === navItemProps.url.split('#')[1].split('?')[0]),
-                            })
-                          }
-                          prefetch="viewport"
-                        >
-                          {navItemProps.label}
-                        </URLAwareNavLink>
-                      ))}
+                      {headerNavigationItems
+                        .slice(0, 6)
+                        .map(({ id, new_tab, ...navItemProps }, index) => (
+                          <URLAwareNavLink
+                            key={id}
+                            {...navItemProps}
+                            newTab={new_tab}
+                            className={({ isActive }) =>
+                              clsx(
+                                "my-4 flex items-center whitespace-nowrap text-base font-normal",
+                                {
+                                  "hover:underline": !isActive,
+                                  "border-b-primary-200 border-b-2":
+                                    isActive &&
+                                    (!navItemProps.url.includes("#") ||
+                                      activeSection ===
+                                        navItemProps.url
+                                          .split("#")[1]
+                                          .split("?")[0]),
+                                }
+                              )
+                            }
+                            prefetch="viewport"
+                          >
+                            {navItemProps.label}
+                          </URLAwareNavLink>
+                        ))}
                     </div>
                   )}
 
@@ -101,13 +117,21 @@ export const Header: FC<HeaderProps> = () => {
                             <div className="relative">
                               <ShoppingBagIcon
                                 {...iconProps}
-                                className={clsx(iconProps.className, 'hover:!bg-primary-50')}
+                                className={clsx(
+                                  iconProps.className,
+                                  "hover:!bg-primary-50"
+                                )}
                               />
                               {cart.items && cart.items.length > 0 && (
                                 <span className="bg-primary-500 absolute -top-1 left-full -ml-2 flex h-4 min-w-[1rem] items-center justify-center rounded-full px-1 text-xs font-bold text-white">
                                   <span>
-                                    {cart.items.reduce((acc, item) => acc + item.quantity, 0)}{' '}
-                                    <span className="sr-only">items in cart, view bag</span>
+                                    {cart.items.reduce(
+                                      (acc, item) => acc + item.quantity,
+                                      0
+                                    )}{" "}
+                                    <span className="sr-only">
+                                      items in cart, view bag
+                                    </span>
                                   </span>
                                 </span>
                               )}
@@ -132,7 +156,11 @@ export const Header: FC<HeaderProps> = () => {
           </div>
         </div>
       </nav>
-      <HeaderSideNav activeSection={activeSection} open={sideNavOpen} setOpen={setSideNavOpen} />
+      <HeaderSideNav
+        activeSection={activeSection}
+        open={sideNavOpen}
+        setOpen={setSideNavOpen}
+      />
     </header>
   );
 };

@@ -1,7 +1,7 @@
-import { Container } from '@app/components/common/container';
-import { Image, ImageProps } from '@app/components/common/images/Image';
-import clsx from 'clsx';
-import { ReactNode } from 'react';
+import { Container } from "@app/components/common/container";
+import { Image, ImageProps } from "@app/components/common/images/Image";
+import clsx from "clsx";
+import { ReactNode } from "react";
 
 interface GridCTAProps {
   className?: string;
@@ -21,8 +21,10 @@ const SideColumn = ({ images }: { images: ImageProps[] }) => {
       {images.map((image, index) => (
         <div
           key={index}
-          className="flex-1 w-full h-full bg-[#9F7F51] bg-cover bg-no-repeat bg-center"
-          {...(image ? { style: { backgroundImage: `url(${image.src})` } } : {})}
+          className="flex-1 w-full h-full bg-[#8b6d6d] bg-cover bg-no-repeat bg-center"
+          {...(image
+            ? { style: { backgroundImage: `url(${image.src})` } }
+            : {})}
         />
       ))}
     </div>
@@ -32,11 +34,19 @@ const SideColumn = ({ images }: { images: ImageProps[] }) => {
 export const GridCTA = ({ content, className, images }: GridCTAProps) => {
   const halfImages = Math.ceil(images.length / 2);
   const maxImages = Math.max(halfImages, 2);
-  const firstHalf = fillEmptyImages(images.slice(0, halfImages), maxImages).reverse();
+  const firstHalf = fillEmptyImages(
+    images.slice(0, halfImages),
+    maxImages
+  ).reverse();
   const secondHalf = fillEmptyImages(images.slice(halfImages), maxImages);
 
   return (
-    <Container className={clsx('flex flex-col md:flex-row min-h-[610px] gap-5 w-full', className)}>
+    <Container
+      className={clsx(
+        "flex flex-col md:flex-row min-h-[610px] gap-5 w-full",
+        className
+      )}
+    >
       <SideColumn images={firstHalf} />
       {content && (
         <div className="flex flex-col flex-1 justify-center items-center bg-accent-50 text-white text-center p-5">
